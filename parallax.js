@@ -134,7 +134,7 @@
 
     this.$mirror = $('<div />').prependTo('body');
 
-    var slider = this.$element.find('>.'+this.mirrorclass+'-slider');
+    var slider = this.$element.find('>.'+this.parallaxClass+'-slider');
     var sliderExisted = false;
 
     if (slider.length == 0)
@@ -144,7 +144,7 @@
       sliderExisted = true;
     }
 
-    this.$mirror.addClass(this.mirrorclass).css({
+    this.$mirror.addClass(this.parallaxClass).css({
       visibility: 'hidden',
       zIndex: this.zIndex,
       position: 'fixed',
@@ -163,7 +163,7 @@
     	});
     }
 
-    this.$slider.addClass(this.mirrorclass+'-slider').one('load', function() {
+    this.$slider.addClass(this.parallaxClass+'-slider').one('load', function() {
       if (!self.naturalHeight || !self.naturalWidth) {
         self.naturalHeight = this.naturalHeight || this.height || 1;
         self.naturalWidth  = this.naturalWidth  || this.width  || 1;
@@ -196,7 +196,7 @@
     androidFix: true,
     position: 'center',
     overScrollFix: false,
-    mirrorclass: 'parallax-mirror',
+    parallaxClass: 'parallax-mirror',
 
     refresh: function() {
       this.boxWidth        = this.$element.outerWidth();

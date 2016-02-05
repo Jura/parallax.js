@@ -158,7 +158,7 @@ Note that when specifying these options as html data-attributes, you should conv
 		</tr>
 		
 		<tr>
-			<td>mirrorclass</td>
+			<td>parallaxClass</td>
 			<td>String</td>
 			<td>'parallax-mirror'</td>
 			<td>You can change class name of parallax mirror (its useful for styling with css).</td>
