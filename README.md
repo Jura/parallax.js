@@ -113,7 +113,7 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>imageSet</td>
 			<td>array Of Object</td>
 			<td>null</td>
-			<td>You can provide different image for different window size (not for responsive, just for first load). The format of set is [{"width":number,"src":path},{"width":number,"src":path}] for now please use number ascending, for first object the width must lower then next object width. Example ```[{"width":720,"src":"images720.jpg"},{"width":1080,"src":"images1080.jpg"}]</td>
+			<td>You can provide different image for different window size (not for responsive, just for first load). The format of set is [{"width":number,"src":path},{"width":number,"src":path}] for now please use number ascending, for first object the width must lower then next object width. Example [{"width":720,"src":"images720.jpg"},{"width":1080,"src":"images1080.jpg"}]</td>
 		</tr>
 		<tr>
 			<td>naturalWidth</td>
