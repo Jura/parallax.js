@@ -1,6 +1,7 @@
 /*!
  * parallax.js v1.4.2 (http://pixelcog.github.io/parallax.js/)
  * @copyright 2016 PixelCog, Inc.
+ * @modified by ngengs (http://www.ngengs.com)
  * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
  */
 
@@ -47,6 +48,24 @@
     }
 
     this.$element = $(element);
+    
+    if(this.imageSet){    	
+    	var component = this.imageSet;
+    	if(component){
+    		var width=$(window).width();
+    		for(i=0;i<component.length;i++){
+    			if((i+1)<component.length){
+    				if((width<=component[i].width) || ((width>=component[i].width) && (width<=component[i+1].width))){
+    					this.imageSrc=component[i].src;
+    					break;
+    				}
+    			}else{
+    				this.imageSrc=component[i].src;
+    				break;
+    			}
+    		}
+    	}
+    }
 
     if (!this.imageSrc && this.$element.is('img')) {
       this.imageSrc = this.$element.attr('src');
@@ -115,7 +134,7 @@
 
     this.$mirror = $('<div />').prependTo('body');
 
-    var slider = this.$element.find('>.parallax-slider');
+    var slider = this.$element.find('>.'+this.mirrorclass+'-slider');
     var sliderExisted = false;
 
     if (slider.length == 0)
@@ -125,7 +144,7 @@
       sliderExisted = true;
     }
 
-    this.$mirror.addClass('parallax-mirror').css({
+    this.$mirror.addClass(this.mirrorclass).css({
       visibility: 'hidden',
       zIndex: this.zIndex,
       position: 'fixed',
@@ -133,8 +152,18 @@
       left: 0,
       overflow: 'hidden'
     });
+    
+    if(this.blur){
+    	this.$slider.css({
+    		'filter': 'blur('+this.blur+'px)',
+    		'-webkit-filter': 'blur('+this.blur+'px)',
+    		'-moz-filter': 'blur('+this.blur+'px)',
+    		'-o-filter': 'blur('+this.blur+'px)',
+    		'-ms-filter': 'blur('+this.blur+'px)'
+    	});
+    }
 
-    this.$slider.addClass('parallax-slider').one('load', function() {
+    this.$slider.addClass(this.mirrorclass+'-slider').one('load', function() {
       if (!self.naturalHeight || !self.naturalWidth) {
         self.naturalHeight = this.naturalHeight || this.height || 1;
         self.naturalWidth  = this.naturalWidth  || this.width  || 1;
@@ -167,6 +196,7 @@
     androidFix: true,
     position: 'center',
     overScrollFix: false,
+    mirrorclass: 'parallax-mirror',
 
     refresh: function() {
       this.boxWidth        = this.$element.outerWidth();

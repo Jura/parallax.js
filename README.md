@@ -110,6 +110,12 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>You must provide a path to the image you wish to apply to the parallax effect.</td>
 		</tr>
 		<tr>
+			<td>imageSet</td>
+			<td>array Of Object</td>
+			<td>null</td>
+			<td>You can provide different image for different window size (not for responsive, just for first load). The format of set is [{"width":number,"src":path},{"width":number,"src":path}] for now please use number ascending, for first object the width must lower then next object width. Example ```[{"width":720,"src":"images720.jpg"},{"width":1080,"src":"images1080.jpg"}]</td>
+		</tr>
+		<tr>
 			<td>naturalWidth</td>
 			<td>number</td>
 			<td>auto</td>
@@ -147,6 +153,12 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>number</td>
 			<td>-100</td>
 			<td>The z-index value of the fixed-position elements.  By default these will be behind everything else on the page.</td>
+		</tr>
+		<tr>
+			<td>blur</td>
+			<td>number</td>
+			<td>none</td>
+			<td>The filter strength to blur image, if it set to 1 it will add css filter:blur(1px) to the image.</td>
 		</tr>
 		<tr>
 			<td>bleed</td>
