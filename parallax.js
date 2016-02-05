@@ -153,7 +153,7 @@
       overflow: 'hidden'
     });
     
-    if(this.blur){
+    if(this.blur!=0){
     	this.$slider.css({
     		'filter': 'blur('+this.blur+'px)',
     		'-webkit-filter': 'blur('+this.blur+'px)',
@@ -191,6 +191,7 @@
   $.extend(Parallax.prototype, {
     speed:    0.2,
     bleed:    0,
+    blur:	  0,
     zIndex:   -100,
     iosFix:   true,
     androidFix: true,
