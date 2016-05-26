@@ -172,6 +172,12 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>false</td>
 			<td>(Experimental) If true, will freeze the parallax effect when "over scrolling" in browsers like Safari to prevent unexpected gaps caused by negative scroll positions.</td>
 		</tr>
+		<tr>
+			<td>mirrorClass</td>
+			<td>string</td>
+			<td>null</td>
+			<td>This class will be added to the generated mirror element for easy CSS targeting.</td>
+		</tr>
 	</tbody>
 </table>
 

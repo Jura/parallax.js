@@ -1,5 +1,5 @@
 /*!
- * parallax.js v1.4.2 (http://pixelcog.github.io/parallax.js/)
+ * parallax.js v1.4.3 (http://pixelcog.github.io/parallax.js/)
  * @copyright 2016 PixelCog, Inc.
  * @license MIT (https://github.com/pixelcog/parallax.js/blob/master/LICENSE)
  */
@@ -214,6 +214,10 @@
         } else {
           this.offsetBaseTop = imageOffsetMin - margin / 2 | 0;
         }
+      }
+
+      if (this.mirrorClass) {
+        this.$mirror.attr('class', "parallax-mirror " + this.mirrorClass);
       }
     },
 
