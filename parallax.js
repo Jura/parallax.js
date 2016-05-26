@@ -125,7 +125,7 @@
       sliderExisted = true;
     }
 
-    this.$mirror.addClass('parallax-mirror').css({
+    this.$mirror.addClass('parallax-mirror').addClass(this.mirrorClass).css({
       visibility: 'hidden',
       zIndex: this.zIndex,
       position: 'fixed',
@@ -214,10 +214,6 @@
         } else {
           this.offsetBaseTop = imageOffsetMin - margin / 2 | 0;
         }
-      }
-
-      if (this.mirrorClass) {
-        this.$mirror.attr('class', "parallax-mirror " + this.mirrorClass);
       }
     },
 
