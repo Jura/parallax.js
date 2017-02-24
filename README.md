@@ -202,6 +202,12 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>body</td>
 			<td>The parallax mirror will be prepended into this container.</td>
 		</tr>
+		<tr>
+			<td>activeClass</td>
+			<td>string</td>
+			<td>parallax--active</td>
+			<td>If not null, will set this class on all active (currently visible) parallax elements, including the original "window" that the effect was called from.</td>
+		</tr>
 	</tbody>
 </table>
 

@@ -186,6 +186,7 @@
     position: 'center',
     overScrollFix: false,
     mirrorContainer: 'body',
+    activeClass: 'parallax--active',
 
     refresh: function() {
       this.boxWidth        = this.$element.outerWidth();
@@ -242,6 +243,7 @@
       var scrollLeft   = Parallax.scrollLeft;
       var overScroll   = this.overScrollFix ? Parallax.overScroll : 0;
       var scrollBottom = scrollTop + Parallax.winHeight;
+      var activeClass  = this.activeClass;
 
       if (this.boxOffsetBottom > scrollTop && this.boxOffsetTop <= scrollBottom) {
         this.visibility = 'visible';
@@ -250,6 +252,19 @@
         this.offsetTop = this.offsetBaseTop - this.mirrorTop * (1 - this.speed);
       } else {
         this.visibility = 'hidden';
+      }
+      
+      // Add a class to the slider if it is visible
+      if (this.activeClass != 'null') {
+        if (this.visibility == 'visible') {
+          this.$element.addClass(activeClass);
+          this.$mirror.addClass(activeClass);
+          this.$slider.addClass(activeClass);
+        } else {
+          this.$element.removeClass(activeClass);
+          this.$mirror.removeClass(activeClass);
+          this.$slider.removeClass(activeClass);
+        }
       }
 
       this.$mirror.css({
