@@ -208,6 +208,12 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>parallax--active</td>
 			<td>If not null, will set this class on all active (currently visible) parallax elements, including the original "window" that the effect was called from.</td>
 		</tr>
+		<tr>
+			<td>mirrorClass</td>
+			<td>string</td>
+			<td>null</td>
+			<td>This class will be added to the generated mirror element for easy CSS targeting.</td>
+		</tr>
 	</tbody>
 </table>
 
