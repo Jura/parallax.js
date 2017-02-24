@@ -151,7 +151,7 @@
     if (typeof self.background !== undefined)
       this.$mirror.css({ backgroundColor: self.background });
 
-    this.$slider.addClass('parallax-slider').one('load', function() {
+    this.$slider.addClass('parallax-slider').attr('role', 'presentation').one('load', function() {
       if (!self.naturalHeight || !self.naturalWidth) {
         self.naturalHeight = this.naturalHeight || this.height || 1;
         self.naturalWidth  = this.naturalWidth  || this.width  || 1;
