@@ -167,8 +167,8 @@ Note that when specifying these options as html data-attributes, you should conv
 		<tr>
 			<td>blur</td>
 			<td>number</td>
-			<td>0</td>
-			<td>You can optionally add filter to blur image, if it set to 1 it will add css filter:blur(1px) to the image.</td>
+			<td>none</td>
+			<td>The filter strength to blur image, if it set to 1 it will add css filter:blur(1px) to the image.</td>
 		</tr>
 		<tr>
 			<td>bleed</td>
