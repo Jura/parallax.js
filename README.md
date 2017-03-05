@@ -26,6 +26,12 @@ To easily add a parallax effect behind an element, add `data-parallax="scroll"` 
 ```html
 <div class="parallax-window" data-parallax="scroll" data-image-src="/path/to/image.jpg"></div>
 ```
+NOTE: If you are using data attributes to implement you must now add the following jQuery code to initialize :
+
+```javascript
+$('.parallax-item').parallax();
+```
+This occurred around November 2016. Thanks to [AnalogMemory](https://github.com/AnalogMemory) for the fix.
 
 ### Via JavaScript
 
@@ -37,7 +43,7 @@ $('.parallax-window').parallax({imageSrc: '/path/to/image.jpg'});
 
 ### Notes
 
-What parallax.js will do is create a fixed-position element for each parallax image at the start of the document's body. This mirror element will sit behind the other elements and match the position and dimensions of its target object.
+What parallax.js will do is create a fixed-position element for each parallax image at the start of the document's body (or another configurable container). This mirror element will sit behind the other elements and match the position and dimensions of its target object.
 
 Due to the nature of this implementation, you must ensure that these parallax objects and any layers below them are transparent so that you can see the parallax effect underneath.  Also, if there is no other content in this element, you will need to ensure that it has some fixed dimensions otherwise you won't see anything.
 
@@ -51,7 +57,7 @@ Due to the nature of this implementation, you must ensure that these parallax ob
 Also, keep in mind that once initialized, the parallax plugin presumes a fixed page layout unless it encounters a `scroll` or `resize` event.  If you have a dynamic page in which another javascript method may alter the DOM, you must manually refresh the parallax effect with the following commands:
 
 ```javascript
-jQuery(window).trigger('resize').trigger('scroll');
+jQuery(window).trigger('resize.px.parallax').trigger('scroll.px.parallax');
 ```
 
 ### Using inner HTML for complex content
@@ -152,7 +158,7 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>bleed</td>
 			<td>number</td>
 			<td>0</td>
-			<td>You can optionally set the parallax mirror element to extend a few pixels above and below the mirrored element.  This can hide slow or stuttering scroll events in certain browsers.</td>
+			<td>You can optionally set the parallax mirror element to extend a few pixels above and below the mirrored element. This can hide slow or stuttering scroll events in certain browsers.</td>
 		</tr>
 		<tr>
 			<td>iosFix</td>
@@ -167,17 +173,53 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>If true, this option will set the parallax image as a static, centered background image whenever it detects an Android user agent. Disable this if you wish to enable the parallax scrolling effect on Android devices.</td>
 		</tr>
 		<tr>
+			<td>msieFix</td>
+			<td>boolean</td>
+			<td>true</td>
+			<td>The parallax effect tends to be jerky in Internet Explorer. If true, this option will set the parallax image as a static, centered background image whenever it detects an Internet Explorer user agent. Disable this if you wish to enable the parallax scrolling effect for the Internet Explorer.</td>
+		</tr>
+		<tr>
 			<td>overScrollFix</td>
 			<td>boolean</td>
 			<td>false</td>
 			<td>(Experimental) If true, will freeze the parallax effect when "over scrolling" in browsers like Safari to prevent unexpected gaps caused by negative scroll positions.</td>
+		</tr>
+		<tr>
+			<td>opacity</td>
+			<td>number</td>
+			<td>1</td>
+			<td>You can customize the image transparency.</td>
+		</tr>
+		<tr>
+			<td>background</td>
+			<td>string</td>
+			<td>null</td>
+			<td>You can customize the background behind the image (works with opacity < 1).</td>
+		</tr>
+		<tr>
+			<td>mirrorContainer</td>
+			<td>jQuery Selector</td>
+			<td>body</td>
+			<td>The parallax mirror will be prepended into this container.</td>
+		</tr>
+		<tr>
+			<td>activeClass</td>
+			<td>string</td>
+			<td>parallax--active</td>
+			<td>If not null, will set this class on all active (currently visible) parallax elements, including the original "window" that the effect was called from.</td>
+		</tr>
+		<tr>
+			<td>mirrorClass</td>
+			<td>string</td>
+			<td>null</td>
+			<td>This class will be added to the generated mirror element for easy CSS targeting.</td>
 		</tr>
 	</tbody>
 </table>
 
 ## Contributing
 
-If you have a pull request you would like to submit, please ensure that you update the minified version of the library along with your code changes.  This project uses [uglifyjs](https://www.npmjs.com/package/uglify-js) to perform code compression.
+If you have a pull request you would like to submit, please ensure that you update the minified version of the library along with your code changes. This project uses [uglifyjs](https://www.npmjs.com/package/uglify-js) to perform code compression.
 
 Please use the following command:
 
