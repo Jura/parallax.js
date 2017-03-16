@@ -90,7 +90,7 @@
       this.positionX + (isNaN(this.positionX)? '' : 'px') + ' ' +
       this.positionY + (isNaN(this.positionY)? '' : 'px');
 
-    if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
+   /* if (navigator.userAgent.match(/(iPod|iPhone|iPad)/)) {
       if (this.imageSrc && this.iosFix && !this.$element.is('img')) {
         this.$element.css({
           backgroundImage: 'url(' + this.imageSrc + ')',
@@ -100,9 +100,9 @@
       }
       this.$element.addClass('fix ios-fix');
       return this;
-    }
+    }*/
 
-    if (navigator.userAgent.match(/(Android)/)) {
+   /* if (navigator.userAgent.match(/(Android)/)) {
       if (this.imageSrc && this.androidFix && !this.$element.is('img')) {
         this.$element.css({
           backgroundImage: 'url(' + this.imageSrc + ')',
@@ -112,7 +112,7 @@
       }
       this.$element.addClass('fix android-fix');
       return this;
-    }
+    }*/
 
     if (navigator.userAgent.match(/(Trident|MSIE)/)) {
       if (this.imageSrc && this.msieFix && !this.$element.is('img')) {
@@ -180,8 +180,8 @@
     speed:    0.2,
     bleed:    0,
     zIndex:   -100,
-    iosFix:   true,
-    androidFix: true,
+    iosFix:   false,
+    androidFix: false,
     msieFix: true,
     position: 'center',
     overScrollFix: false,
@@ -190,7 +190,7 @@
 
     refresh: function() {
       this.boxWidth        = this.$element.outerWidth();
-      this.boxHeight       = this.$element.outerHeight() + this.bleed * 2;
+      this.boxHeight       = Math.min(8 * this.boxWidth,this.$element.outerHeight() + this.bleed * 2);
       this.boxOffsetTop    = this.$element.offset().top - this.bleed;
       this.boxOffsetLeft   = this.$element.offset().left;
       this.boxOffsetBottom = this.boxOffsetTop + this.boxHeight;
