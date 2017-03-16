@@ -161,13 +161,13 @@ Note that when specifying these options as html data-attributes, you should conv
 			<td>You can optionally set the parallax mirror element to extend a few pixels above and below the mirrored element. This can hide slow or stuttering scroll events in certain browsers.</td>
 		</tr>
 		<tr>
-			<td>~~iosFix~~</td>
+			<td><del>iosFix</del></td>
 			<td>boolean</td>
 			<td>false</td>
 			<td>**No longer supported** </td>
 		</tr>
 		<tr>
-			<td>~~androidFix~~</td>
+			<td><del>androidFix</del></td>
 			<td>boolean</td>
 			<td>false</td>
 			<td>**No longer supported** </td>
